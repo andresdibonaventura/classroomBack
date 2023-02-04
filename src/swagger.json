@@ -1,0 +1,324 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Classroom API Rest",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "description": "Get all Users",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got all users"
+                    },
+                    "400": {
+                        "description": "we generate an error"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create new user",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully create a new user"
+                    },
+                    "400": {
+                        "description": "we generate an error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get a User by its ID",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got a user by its ID"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding a user with that ID"
+                    }
+                }
+            },
+            "put":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We edit a User by its ID",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully edit a user by its ID"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding a user with that ID"
+                    }
+                }
+            },
+            "delete":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We delete a User by its ID",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully delete a user by its ID"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding a user with that ID"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/me": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get our own user",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got our own user"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding our user"
+                    }
+                }
+            },
+            "put":{
+                "parameters":[
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We edit a User by its ID",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully edit our own user"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding our user"
+                    }
+                }
+            },
+            "delete":{
+                "parameters":[
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We delete our own user",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully delete our own user"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding our user"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/teacher": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get all the students",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got all the students"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding all students"
+                    }
+                }
+            }
+        },
+        "/api/v1/task/teacher": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "task",
+                        "in": "path",
+                        "description": "task",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get all the task",
+                "tags": ["Task"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got all the task"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding all the task"
+                    }
+                }
+            },
+            "post":{
+                "parameters":[
+                    {
+                        "name": "task",
+                        "in": "path",
+                        "description": "task",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We create a new task",
+                "tags": ["Task"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully create a task"
+                    },
+                    "400": {
+                        "description": "we generate an error to creating a task"
+                    }
+                }
+            }
+        },
+        "/api/v1/task/teacher/{id}": {
+            "put":{
+                "parameters":[
+                    {
+                        "name": "task ID",
+                        "in": "path",
+                        "description": "task",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We edit a task calification by id",
+                "tags": ["Task"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully post the calification for a task by id"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding the task"
+                    }
+                }
+            }
+        },
+        "/api/v1/task/me": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "task",
+                        "in": "path",
+                        "description": "task",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get our own task",
+                "tags": ["Task"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully get our task"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding our task"
+                    }
+                }
+            }
+        },
+        "/api/v1/task/me/{id}": {
+            "put":{
+                "parameters":[
+                    {
+                        "name": "task ID",
+                        "in": "path",
+                        "description": "task",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We response our task",
+                "tags": ["Task"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully response our task"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding our task"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login": {
+            "post":{
+                "parameters":[
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "user",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "we do a login",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully do the login"
+                    },
+                    "400": {
+                        "description": "we generate an error doing the login"
+                    }
+                }
+            }
+        }
+    }
+}
