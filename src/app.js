@@ -10,7 +10,7 @@ const userRouter = require("./users/users.router").router;
 const authRouter = require("./auth/auth.router").router;
 const taskRouter = require("./task/task.router").router;
 const initModels = require("./models/initModels")
-const defaultData = require("./utils/defaultData")
+// const defaultData = require("./utils/defaultData")
 const swaggerDoc = require("./swagger.json")
 const swaggerUI = require("swagger-ui-express")
 
@@ -35,7 +35,7 @@ db.authenticate()
     db.sync() 
       .then(() => {
         console.log('Database synced')
-        defaultData()
+        // defaultData()
       })
       .catch(err => console.log(err))
      } 
@@ -43,7 +43,7 @@ db.authenticate()
     db.sync({force:true})
       .then(() => {
         console.log('Database synced')
-         defaultData()
+        //  defaultData()
       })
       .catch(err => console.log(err))
     }
