@@ -35,7 +35,7 @@ db.authenticate()
     db.sync() 
       .then(() => {
         console.log('Database synced')
-      //  defaultData()
+        defaultData()
       })
       .catch(err => console.log(err))
      } 
@@ -43,7 +43,7 @@ db.authenticate()
     db.sync({force:true})
       .then(() => {
         console.log('Database synced')
-        // defaultData()
+         defaultData()
       })
       .catch(err => console.log(err))
     }
