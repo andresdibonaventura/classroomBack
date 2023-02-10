@@ -28,25 +28,25 @@ const {db} = require('./utils/database')
 
 
 initModels()
-// db.authenticate()
-//   .then(() => console.log('Database Authenticated'))
-//   .catch(err => console.log(err))
-//   if(process.env.NODE_ENV === 'production'){
-//     db.sync() 
-//       .then(() => {
-//         console.log('Database synced')
-//         // defaultData()
-//       })
-//       .catch(err => console.log(err))
-//      } 
-//       else{
-//     db.sync({force:true})
-//       .then(() => {
-//         console.log('Database synced')
-//         //  defaultData()
-//       })
-//       .catch(err => console.log(err))
-//     }
+db.authenticate()
+  .then(() => console.log('Database Authenticated'))
+  .catch(err => console.log(err))
+  if(process.env.NODE_ENV === 'production'){
+    db.sync() 
+      .then(() => {
+        console.log('Database synced')
+        // defaultData()
+      })
+      .catch(err => console.log(err))
+     } 
+      else{
+    db.sync({force:true})
+      .then(() => {
+        console.log('Database synced')
+        //  defaultData()
+      })
+      .catch(err => console.log(err))
+    }
 
 //? Esta configuracion es para habilitar el req.body
 
@@ -66,7 +66,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
-app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
+// app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
 
 
 
