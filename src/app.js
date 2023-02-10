@@ -92,6 +92,6 @@ app.get("/ejemplo",
 //   console.log("Server started at port 8000");
 // });
 
-exports.default = app
-exports.app = app
-module.exports = app
+// exports.default = app
+// exports.app = app
+// module.exports = app
