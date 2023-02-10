@@ -29,7 +29,7 @@ const Task = db.define('task', {
     allowNull: false,
     references: {
         model: Users, 
-        key: 'userId'
+        key: 'id'
     }
    }
 })

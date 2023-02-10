@@ -22,7 +22,7 @@ const getAllTask = async () => {
     return data
 }
 
-const getStudentTasks = async () => {
+const getStudentTasks = async (id) => {
     const data = await Task.findAll({
         where: {
             userId: id

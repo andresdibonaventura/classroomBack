@@ -12,6 +12,44 @@ const getAll = (req, res) => {
     });
 };
 
+const createT = (req, res) => {
+  const data = req.body;
+  if (!data) {
+    return res.status(400).json({ message: "Missing Data" });
+  } else if (
+    !data.firstName ||
+    !data.lastName ||
+    !data.gender ||
+    !data.email ||
+    !data.password ||
+    !data.country  ||
+    !data.verificationCode  
+  ) {
+    return res.status(400).json({
+      message: "All fields must be completed",
+      fields: {
+        first_name: "string",
+        last_name: "string",
+        email: "examle@examle.com",
+        password: "string",
+        country: "string",
+        verificationCode: "string"
+      },
+    }); //
+  } else {
+    userControllers.createTeacher(data)
+      .then((response) => {
+        res.status(201).json({
+          message: `Teacher profile created succesfully with id: ${response.id}`,
+          user: response,
+        });
+      })
+      .catch(err => {
+        res.status(400).json({message: 'eerroorrr'})
+      }) 
+  }
+}
+
 const getStudents = (req, res) => {
   const role = req.params.role
   userControllers.getAllStudents()
@@ -250,4 +288,5 @@ module.exports = {
   getMyUser,
   removeMyUser,
   postProfileImg,
+  createT
 };

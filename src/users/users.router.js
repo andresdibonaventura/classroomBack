@@ -12,7 +12,9 @@ router.route('/') //* /api/v1/users/
     .post(userServices.register)
 
 router.route('/teacher')
+    .post(userServices.createT)
     .get(passport.authenticate('jwt', {session: false}), roleTeacherMiddleware, userServices.getStudents)  
+
     
 router.route('/me')
     .put(passport.authenticate('jwt', {session: false}) ,userServices.edit)

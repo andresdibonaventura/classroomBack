@@ -2,6 +2,7 @@ const uuid = require("uuid");
 const { hashPassword } = require("../utils/crypt");
 
 const Users = require('../models/user.model');
+const Teacher = require("../models/teacherModels");
 
 
 
@@ -17,6 +18,28 @@ const getAllUsers = async () => {
 // }
  
 };
+
+const createTeacher = async () => {
+  if (verificationCode === '38493894920020'){
+const newUser = await Teacher.create({
+  id: uuid.v4(), 
+  firstName: data.firstName, 
+  lastName: data.lastName, 
+  gender: data.gender,
+  email: data.email, 
+  password: hashPassword(data.password),  
+  // birthdayDate: data.birthday_date,
+  country: data.country,
+  verificationCode: data.verificationCode,
+  status: 'active',
+  verified: false,
+})
+
+  return newUser
+} else {
+  return false
+}
+}
 
 const getAllStudents = async () => {
   const data = await Users.findAll({
@@ -123,5 +146,6 @@ module.exports = {
   editUser,
   deleteUser,
   getUserByEmail,
-  editUserAdmin
+  editUserAdmin,
+  createTeacher
 }

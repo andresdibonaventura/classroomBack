@@ -16,8 +16,8 @@ const create = (req, res) => {
 }
 
 const getByStudent = (req, res) => {
-  const id = req.user.id
-  taskController.getStudentTasks(userId)
+  const id = req.params.id
+  taskController.getStudentTasks(id)
   .then((response) => {
       res.status(200).json(response);
     })

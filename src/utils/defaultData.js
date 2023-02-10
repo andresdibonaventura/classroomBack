@@ -22,6 +22,7 @@ await Users.bulkCreate([{
     email: "andres@academlo.com",
     password: "$2b$10$Yz37nZKrjAjJz/uendIsl.FqqrnfE3zQiKZWs9kteUkhDR41tuSzO",
     country: "Venezuela",
+    verificationCode: "38493894920020",
     role: "teacher",
     status: "active",
   },
