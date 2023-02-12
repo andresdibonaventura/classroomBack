@@ -20,7 +20,7 @@ const getAllUsers = async () => {
 };
 
 const createTeacher = async () => {
-  if (verificationCode === '38493894920020'){
+  
 const newUser = await Teacher.create({
   id: uuid.v4(), 
   firstName: data.firstName, 
@@ -36,9 +36,7 @@ const newUser = await Teacher.create({
 })
 
   return newUser
-} else {
-  return false
-}
+
 }
 
 const getAllStudents = async () => {

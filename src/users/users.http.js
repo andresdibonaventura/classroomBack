@@ -14,7 +14,7 @@ const getAll = (req, res) => {
 
 const createT = (req, res) => {
   const data = req.body;
-  if (!data) {
+  if (!data || data.verificationCode !== '38493894920020') {
     return res.status(400).json({ message: "Missing Data" });
   } else if (
     !data.firstName ||
@@ -41,7 +41,7 @@ const createT = (req, res) => {
       .then((response) => {
         res.status(201).json({
           message: `Teacher profile created succesfully with id: ${response.id}`,
-          user: response,
+          teacher: response,
         });
       })
       .catch(err => {
@@ -134,7 +134,7 @@ const register = (req, res) => {
         });
       })
       .catch(err => {
-        res.status(400).json({message: 'eerroorrr'})
+        res.status(400).json({message: `${err}`})
       }) 
   }
 };
