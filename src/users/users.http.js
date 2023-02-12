@@ -45,7 +45,7 @@ const createT = (req, res) => {
         });
       })
       .catch(err => {
-        res.status(400).json({message: 'eerroorrr'})
+        res.status(400).json({message: `${err}, errooooor`})
       }) 
   }
 }

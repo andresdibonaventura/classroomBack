@@ -19,7 +19,7 @@ const getAllUsers = async () => {
  
 };
 
-const createTeacher = async () => {
+const createTeacher = async (data) => {
   
 const newUser = await Teacher.create({
   id: uuid.v4(), 
