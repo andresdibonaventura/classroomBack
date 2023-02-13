@@ -42,7 +42,7 @@ const Teacher = db.define('teacher', {
     role: {
         allowNull: false,
         type: DataTypes.STRING,
-         defaultValue: 'normal'
+         defaultValue: 'teacher'
     },
     country: {
         allowNull: false,
