@@ -134,6 +134,15 @@ const getUserByEmail = async (email) => {
   return data;
 }
 
+const getTeacherByEmail = async (email) => {
+  const data = await Teacher.findOne({
+    where: { email },
+    attributes: {
+      exclude: ["createdAt", "updatedAt"],
+    },
+  });
+  return data;
+}
 
 
 module.exports = {
@@ -145,5 +154,6 @@ module.exports = {
   deleteUser,
   getUserByEmail,
   editUserAdmin,
-  createTeacher
+  createTeacher,
+  getTeacherByEmail
 }
