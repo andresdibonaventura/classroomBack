@@ -40,7 +40,7 @@ const newUser = await Teacher.create({
 }
 
 const getAllStudents = async () => {
-  const data = await Users.findAll({
+  const data = await Teacher.findAll({
     
       attributes: {
         exclude: ['password']
