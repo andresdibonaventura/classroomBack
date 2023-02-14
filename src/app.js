@@ -9,6 +9,7 @@ const path = require('path')
 const userRouter = require("./users/users.router").router;
 const authRouter = require("./auth/auth.router").router;
 const taskRouter = require("./task/task.router").router;
+const notasRouter = require("./notas.router").router;
 const initModels = require("./models/initModels")
 // const defaultData = require("./utils/defaultData")
 const swaggerDoc = require("./swagger.json")
@@ -66,6 +67,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
+app.use("/api/v1/notas", notasRouter);
 // app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
 
 

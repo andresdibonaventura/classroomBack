@@ -15,14 +15,17 @@ router.route('/teacher/:id')
 .patch(passport.authenticate('jwt', {session: false}), roleTeacherMiddleware, taskServices.edit)
 .get(passport.authenticate('jwt', {session: false}), taskServices.getMyId)
 
+router.route('notas/:id')
+.get(taskServices.getByStudent)
+
+
 router.route('/me')
 .get(passport.authenticate('jwt', {session: false}), taskServices.getMy)
 
 router.route('/me/:id')
 .patch( taskServices.editByStudent)
 
-router.route('teacher/student/:id')
-.get(taskServices.getByStudent)
+// .get(taskServices.getByStudent)
 
 
 router.route('/:id')

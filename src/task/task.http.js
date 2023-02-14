@@ -17,6 +17,7 @@ const create = (req, res) => {
 
 const getByStudent = (req, res) => {
   const id = req.params.id
+  console.log('first')
   taskController.getStudentTasks(id)
   .then((response) => {
       res.status(200).json(response);
