@@ -48,8 +48,8 @@ const login = (req, res) => {
           const token = jwt.sign(
             {
               id: response.id,
-              email: response.email
-            
+              email: response.email,
+              role: response.role
         
             },
             "academlo"
