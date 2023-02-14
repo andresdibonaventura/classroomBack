@@ -51,7 +51,6 @@ const createT = (req, res) => {
 }
 
 const getStudents = (req, res) => {
-  const role = req.params.role
   userControllers.getAllStudents()
   .then((response) => {
     res.status(200).json(response);

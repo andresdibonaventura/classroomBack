@@ -41,9 +41,7 @@ const newUser = await Teacher.create({
 
 const getAllStudents = async () => {
   const data = await Users.findAll({
-      where: {
-        role: 'normal'
-      },
+    
       attributes: {
         exclude: ['password']
       }
