@@ -64,6 +64,20 @@ const getUserById = async(id) => {
   //? select * from users where id = ${id};
 };
 
+const getTeacherById = async(id) => {
+  
+  const data = await Teacher.findOne({
+    where: {
+      id
+    },
+    attributes: {
+      exclude: ['password']
+    }
+  })
+  return data
+  //? select * from users where id = ${id};
+};
+
 const createUser = async(data) => {
   const newUser =  await Users.create({
     id: uuid.v4(), 
@@ -153,5 +167,6 @@ module.exports = {
   getUserByEmail,
   editUserAdmin,
   createTeacher,
-  getTeacherByEmail
+  getTeacherByEmail,
+  getTeacherById
 }

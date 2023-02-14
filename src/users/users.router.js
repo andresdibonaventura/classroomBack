@@ -25,6 +25,10 @@ router.route('/me/profile-img')
     .post(passport.authenticate('jwt', {session: false}), upload.single('profile_img'), userServices.postProfileImg)
     //.get()
 
+router.route('/teacher/:id')
+.get(userServices.getTById)
+
+
 router.route('/:id')
     .get(userServices.getById)
     .delete(passport.authenticate('jwt', {session: false}), roleAdminMiddleware, userServices.remove)

@@ -71,6 +71,18 @@ const getById = (req, res) => {
       res.status(404).json({ message: `El usuario con el id ${id} no existe` });
     });
 };
+const getTById = (req, res) => {
+  const id = req.params.id;
+  userControllers
+    .getUserById(id)
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(404).json({ message: `el profesor/a con el id ${id} no existe` });
+    });
+};
+
 /*
 {
     id: 2,
@@ -287,5 +299,6 @@ module.exports = {
   getMyUser,
   removeMyUser,
   postProfileImg,
-  createT
+  createT,
+  getTById
 };
