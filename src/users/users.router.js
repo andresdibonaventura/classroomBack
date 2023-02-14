@@ -13,7 +13,7 @@ router.route('/') //* /api/v1/users/
 
 router.route('/teacher')
     .post(userServices.createT)
-    .get(/*passport.authenticate('jwt', {session: false}),*/roleTeacherMiddleware, userServices.getStudents)  
+    .get(passport.authenticate('jwt', {session: false}),/*roleTeacherMiddleware ,*/ userServices.getStudents)  
 
     
 router.route('/me')
