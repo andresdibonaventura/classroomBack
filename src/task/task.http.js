@@ -61,7 +61,7 @@ const edit = (req, res) => {
       ) {
         return res.status(400).json({message: "All fields must be completed"});
       } else {
-        const response = taskController.editTask(id, role, data)
+        const response = taskController.editTask(id, data)
         return res.status(200).json({
           message: 'Task edited succesfully',
           task: response
