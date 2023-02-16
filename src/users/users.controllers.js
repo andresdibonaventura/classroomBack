@@ -19,6 +19,9 @@ const getAllUsers = async () => {
  
 };
 
+
+
+
 const createTeacher = async (data) => {
   
 const newUser = await Teacher.create({
@@ -34,6 +37,7 @@ const newUser = await Teacher.create({
   status: 'active',
   verified: false,
 })
+
 
   return newUser
 
@@ -100,7 +104,7 @@ const createUser = async(data) => {
   //   is_active: true,
   //   verified: false,
   // })
-  return newUser
+ 
 
 };
 const editUser = async (userId, data) => {
@@ -168,5 +172,6 @@ module.exports = {
   editUserAdmin,
   createTeacher,
   getTeacherByEmail,
-  getTeacherById
+  getTeacherById,
+  processPayment
 }
