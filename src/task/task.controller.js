@@ -51,14 +51,18 @@ const getMyTask = async (id, userId) => {
 }
 
 const editTask = async (id, data) => {
-
-    const { response, uname, title, description, calification, ...restOfProperties} = data
+    try{
+        const {response, uname, title, description, calification, ...restOfProperties} = data
     const res = await Task.update(
         {...restOfProperties, calification},
-        {where: {id: id }}
+        {where: id}
    
     )
     return res
+    } catch (error){
+        console.log(error)
+    }
+    
 
 }
 

@@ -12,7 +12,7 @@ router.route('/teacher')
 .post(passport.authenticate('jwt', {session: false}), roleTeacherMiddleware, taskServices.create)
 
 router.route('/teacher/:id')
-.patch(passport.authenticate('jwt', {session: false}),  taskServices.edit)
+.patch(/*passport.authenticate('jwt', {session: false}),*/  taskServices.edit)
 .get(passport.authenticate('jwt', {session: false}), taskServices.getMyId)
 
 router.route('notas/:id')
