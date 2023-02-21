@@ -5,48 +5,6 @@ const Users = require('../models/user.model');
 const Teacher = require("../models/teacherModels");
 
 
-paypal.configure({
-  mode: 'sandbox',
-  client_id: 'Ae2KTa0ca7VyuTHl659s7ffe7hVylTZb8RYIPpb31yTbt1b-70S_3RJrd_K_pPmpgGTifZ0UpRXSu94-',
-  client_secret: 'ECUWM4ga6l2VISC592uUbQE2iLsaIeQvbuZzHDyzE6fLKlCktm5tOZc6TST3ITRQI23IpeyvbR5k1Bd1'
-});
-
-const paypal = (amount, description) => {
-  return new Promise((resolve, reject) => {
-    const paymentData = {
-      intent: 'sale',
-      payer: {
-        payment_method: 'paypal'
-      },
-      transactions: [{
-        amount: {
-          total: amount,
-          currency: 'USD'
-        },
-        description: description
-      }],
-      redirect_urls: {
-        return_url: 'https://classroom-ef3j.onrender.com/api/v1/success',
-        cancel_url: 'https://classroom-ef3j.onrender.com/api/v1/cancel'
-      }
-    };
-    
-    paypal.payment.create(paymentData, (error, payment) => {
-      if (error) {
-        reject(error);
-      } else {
-        for (let i = 0; i < payment.links.length; i++) {
-          if (payment.links[i].rel === 'approval_url') {
-            resolve(payment.links[i].href);
-            break;
-          }
-        }
-      }
-    });
-  });
-};
-//4699884184
-
 const getAllUsers = async () => {
 // if (role === 'Admin' || 'teacher'){
   const data = await Users.findAll({
@@ -214,5 +172,5 @@ module.exports = {
   createTeacher,
   getTeacherByEmail,
   getTeacherById,
-  processPayment
+
 }

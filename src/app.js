@@ -11,7 +11,7 @@ const authRouter = require("./auth/auth.router").router;
 const taskRouter = require("./task/task.router").router;
 const notasRouter = require("./notas.router").router;
 const initModels = require("./models/initModels")
-const paymentRoute = require("./users/payment").router
+
 // const defaultData = require("./utils/defaultData")
 const swaggerDoc = require("./swagger.json")
 const swaggerUI = require("swagger-ui-express")
@@ -69,7 +69,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
 app.use("/api/v1/notas", notasRouter);
-app.use("api/v1/pay", paymentRoute)
+
 // app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
 
 
