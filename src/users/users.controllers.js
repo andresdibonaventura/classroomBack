@@ -103,7 +103,7 @@ const createUser = async(data) => {
   //   is_active: true,
   //   verified: false,
   // })
- 
+ return newUser
 
 };
 const editUser = async (userId, data) => {
