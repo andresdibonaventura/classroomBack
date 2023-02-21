@@ -22,7 +22,7 @@ const Task = db.define('task', {
     type: DataTypes.STRING
    },
    calification: {
-    type: DataTypes.INTEGER
+    type: DataTypes.STRING
    },
    userId: {
     type: DataTypes.UUID,
