@@ -9,7 +9,7 @@ const userServices = require('../users/users.http')
 
 router.route('/teacher')
 .get(passport.authenticate('jwt', {session: false}), /*roleTeacherMiddleware,*/ userServices.getStudents)
-.post(passport.authenticate('jwt', {session: false}), roleTeacherMiddleware, taskServices.create)
+.post(passport.authenticate('jwt', {session: false}), /*roleTeacherMiddleware*/ taskServices.create)
 
 router.route('/teacher/:id')
 .patch(/*passport.authenticate('jwt', {session: false}),*/  taskServices.edit)

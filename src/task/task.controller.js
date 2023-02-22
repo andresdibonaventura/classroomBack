@@ -55,7 +55,7 @@ const editTask = async (id, data) => {
         const {response, uname, title, description, calification, ...restOfProperties} = data
     const res = await Task.update(
         {...restOfProperties, calification},
-        {where: id}
+        {where: {id: id}}
    
     )
     return res
