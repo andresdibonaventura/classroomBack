@@ -8,7 +8,7 @@ const userServices = require('./users.http')
 
 
 router.route('/') //* /api/v1/users/
-    .get(passport.authenticate('jwt', {session: false}), roleAdminMiddleware, userServices.getAll)
+    .get(passport.authenticate('jwt', {session: false}), userServices.getAll)
     .post(userServices.register)
 
 router.route('/teacher')
