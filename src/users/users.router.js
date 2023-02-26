@@ -31,7 +31,7 @@ router.route('/teacher/:id')
 
 router.route('/:id')
     .get(userServices.getById)
-    .delete(passport.authenticate('jwt', {session: false}), roleAdminMiddleware, userServices.remove)
+    .delete(passport.authenticate('jwt', {session: false}),  userServices.remove)
     .put(passport.authenticate('jwt', {session: false}), roleAdminMiddleware, userServices.editAdmin)
     
 
